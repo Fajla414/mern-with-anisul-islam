@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const createError = require('http-errors');
 
 const app = express();
 app.use(morgan('dev'));
@@ -35,17 +36,16 @@ app.get('/api/user', isLoggedIn, (req, res) => {
 
 // client error handling
 app.use((req, res, next) => {
-    res.status(404).send({
-        message: 'route not found'
-    })
-    next();
+    next(createError(404, 'route not found'));
 })
 
 
 // server error handling
 app.use((err, req, res, next) => {
-    console.error(err.stack)
-    res.status(500).send('Something broke!')
+    return res.status(err.status || 500).json({
+        success: false,
+        message: err.message,
+    })
 })
 
 
