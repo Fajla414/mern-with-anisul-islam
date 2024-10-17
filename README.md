@@ -13,3 +13,4 @@
 8. Express Error Handling Middleware -> body-parser
 9. How to handle HTTP erros ->  http-errors
 10. How to secure API -> xss-clean, express-rate-limit
+11. Environment variable & .gitignore
