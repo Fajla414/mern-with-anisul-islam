@@ -15,3 +15,5 @@
 10. How to secure API -> xss-clean, express-rate-limit
 11. Environment variable & .gitignore
 12. MVC(Model View Controler) Architecture
+13. connect to MongoDB database 
+14. Schema & Model for User & bcrypt 
